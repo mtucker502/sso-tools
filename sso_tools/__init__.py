@@ -53,7 +53,7 @@ class BaseSSO():
         """Method utilizes existing requests session for repeated GET requests"""
         if self.logged_in:
             log.info('GET request to {}'.format(url))
-            return self.handle_http_erors(self.session.get(url, verify=self.verify, **kwargs))
+            return self.handle_http_error(self.session.get(url, verify=self.verify, **kwargs))
         else:
             return self.login(url=url, method='GET', verify=self.verify, **kwargs)
 
