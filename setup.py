@@ -8,7 +8,7 @@ requires = [
     'certifi==2019.6.16',
     'chardet==3.0.4',
     'idna==2.8',
-    'lxml==4.5.0',
+    'lxml==4.6.3',
     'requests==2.22.0',
     'soupsieve==1.9.2',
     'urllib3==1.25.3'
