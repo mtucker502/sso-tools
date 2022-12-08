@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 requires = [
     'beautifulsoup4==4.7.1',
-    'certifi==2019.6.16',
+    'certifi==2022.12.7',
     'chardet==3.0.4',
     'idna==2.8',
     'lxml==4.5.0',
