@@ -6,6 +6,8 @@ import re
 
 log = logging.getLogger(__name__)
 
+__all__ = ['BaseSSO', 'AzureSSO', 'OktaSSO']
+
 
 class BaseSSO():
     """Base class for building sub classes for specific SSO implementations."""
@@ -94,3 +96,8 @@ class BaseSSO():
                     return self.handle_no_script(response)
 
         return response
+
+
+# Import submodules for convenience
+from sso_tools.azure_sso import AzureSSO
+from sso_tools.okta_sso import OktaSSO

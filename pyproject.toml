@@ -1,0 +1,31 @@
+[project]
+name = "sso-tools"
+version = "0.0.2"
+description = "Easily access pages protected with various SSO implementations"
+readme = "README.md"
+license = "MIT"
+authors = [
+    { name = "mtucker502", email = "github@netzolt.com" }
+]
+requires-python = ">=3.9"
+dependencies = [
+    "beautifulsoup4==4.14.3",
+    "certifi==2026.1.4",
+    "chardet==5.2.0",
+    "idna==3.10",
+    "lxml==6.0.2",
+    "requests==2.32.5",
+    "soupsieve==2.8.2",
+    "urllib3==2.6.3",
+]
+
+[project.urls]
+Homepage = "https://github.com/mtucker502/sso-tools"
+Repository = "https://github.com/mtucker502/sso-tools"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["sso_tools"]
