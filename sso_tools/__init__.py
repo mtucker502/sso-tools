@@ -1,4 +1,5 @@
 import logging
+import os
 import requests
 import urllib3
 from bs4 import BeautifulSoup
@@ -13,11 +14,21 @@ class BaseSSO():
     """Base class for building sub classes for specific SSO implementations."""
 
     def __init__(self,
-                 sso_credentials,             # dictionary containing 'sso_user' and 'sso_password'
+                 sso_credentials=None,        # dictionary containing 'sso_user' and 'sso_password'
                  verify=True,
                  no_script=[],                # list of strings to match for no JavaScript detection
                  ):
-        self.sso_credentials = sso_credentials
+        # Build credentials from passed values or fall back to environment variables
+        env_user = os.environ.get('SSO_USER')
+        env_password = os.environ.get('SSO_PASSWORD')
+
+        if sso_credentials is None:
+            sso_credentials = {}
+
+        self.sso_credentials = {
+            'sso_user': sso_credentials.get('sso_user') or env_user,
+            'sso_password': sso_credentials.get('sso_password') or env_password,
+        }
         self.no_script = no_script
         self.logged_in = False
         
